@@ -1,0 +1,136 @@
+<mat-card>
+  <mat-card-title>Order Status</mat-card-title>
+</mat-card>
+
+<div style="padding-left: 24px;padding-top: 24px;">
+  <mat-card>
+    <mat-card-content>
+      <form class="example-form" [formGroup]="formGroup">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Order</mat-label>
+          <input matInput formControlName="order" name="order" placeholder="Enter order number">
+        </mat-form-field>
+
+
+
+        <button mat-raised-button class="margin-left-12" color="primary">Execute</button>
+        <button mat-raised-button class="margin-left-12" (click)="addTypes()" color="primary">Add</button>
+
+      </form>
+      <form>
+        <div class="width-60">
+          <mat-form-field class="example-chip-list" appearance="outline">
+            <mat-label>Favorite Fruits</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let fruit of fruits" (click)="getstate(fruit)"
+                [selectable]="selectable" [removable]="removable" (removed)="remove(fruit)">
+                {{fruit.name}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+               
+              </mat-chip>
+
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+
+
+</div>
+
+<div class="width-100">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Order">
+      <th mat-header-cell *matHeaderCellDef> Order </th>
+      <td mat-cell *matCellDef="let element"> {{element.order}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Rel.Date">
+      <th mat-header-cell *matHeaderCellDef> Rel.Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.Rel_Date}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Req.Del.Date">
+      <th mat-header-cell *matHeaderCellDef> Req.Del.Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.Req_Del_Date}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="CloseDate">
+      <th mat-header-cell *matHeaderCellDef> Close Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.CloseDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DOMStatus">
+      <th mat-header-cell *matHeaderCellDef> DOM Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.DOMStatus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DOMHolds">
+      <th mat-header-cell *matHeaderCellDef> DOM Holds </th>
+      <td mat-cell *matCellDef="let element"> {{element.DOMHolds}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="WMS">
+      <th mat-header-cell *matHeaderCellDef> WMS </th>
+      <td mat-cell *matCellDef="let element"> {{element.WMS}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="WMSStatus">
+      <th mat-header-cell *matHeaderCellDef> WMS Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.WMSStatus}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="WMSCancel">
+      <th mat-header-cell *matHeaderCellDef>WMSCancel </th>
+      <td mat-cell *matCellDef="let element"> {{element.WMSCancel}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="WMSExport">
+      <th mat-header-cell *matHeaderCellDef>WMSExport </th>
+      <td mat-cell *matCellDef="let element"> {{element.WMSExport}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ESBLogs">
+      <th mat-header-cell *matHeaderCellDef>ESBLogs </th>
+      <td mat-cell *matCellDef="let element"> {{element.ESBLogs}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ESBEx">
+      <th mat-header-cell *matHeaderCellDef>ESBEx </th>
+      <td mat-cell *matCellDef="let element"> {{element.ESBEx}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="CTMSDetail">
+      <th mat-header-cell *matHeaderCellDef>CTMSDetail </th>
+      <td mat-cell *matCellDef="let element"><button>CTMSDetail</button>  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="DomDetail">
+      <th mat-header-cell *matHeaderCellDef>DomDetail </th>
+      <td mat-cell *matCellDef="let element"><button>DomDetail</button>  </td>
+    </ng-container>
+
+    <ng-container matColumnDef="WMSDetail">
+      <th mat-header-cell *matHeaderCellDef>WMSDetail </th>
+      <td mat-cell *matCellDef="let element"> <button>WMSDetail</button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ESBDetail">
+      <th mat-header-cell *matHeaderCellDef>ESBDetail </th>
+      <td mat-cell *matCellDef="let element"> <button>ESBDetail</button> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
