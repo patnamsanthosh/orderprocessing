@@ -15,11 +15,24 @@ import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTableModule} from '@angular/material/table';
+import { ZavacorOrderComponent } from './shared/dialogs/zavacor-order/zavacor-order.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatMenuModule} from '@angular/material/menu';
+import { OmniStatusDetailsComponent } from './shared/dialogs/omni-status-details/omni-status-details.component';
+import { ExactaStatusComponent } from './shared/dialogs/exacta-status/exacta-status.component';
+import { EbsStatusComponent } from './shared/dialogs/ebs-status/ebs-status.component';
+import { DelayedOrderTransmissionComponent } from './delayed-order-transmission/delayed-order-transmission.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    ZavacorOrderComponent,
+    OmniStatusDetailsComponent,
+    ExactaStatusComponent,
+    EbsStatusComponent,
+    DelayedOrderTransmissionComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +47,10 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatChipsModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatCheckboxModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

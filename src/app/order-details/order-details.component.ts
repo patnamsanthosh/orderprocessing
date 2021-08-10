@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { ZavacorOrderComponent } from '../shared/dialogs/zavacor-order/zavacor-order.component';
+import { OmniStatusDetailsComponent } from '../shared/dialogs/omni-status-details/omni-status-details.component';
+import { ExactaStatusComponent } from '../shared/dialogs/exacta-status/exacta-status.component';
+import { EbsStatusComponent } from '../shared/dialogs/ebs-status/ebs-status.component';
 
 @Component({
   selector: 'app-order-details',
@@ -9,38 +14,32 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class OrderDetailsComponent implements OnInit {
 
-  formGroup: FormGroup; 
+  formGroup: FormGroup;
   typesOfShoes: string[] = [];
   selectable = true;
   removable = true;
   addOnBlur = true;
   // readonly separatorKeysCodes = [ENTER, COMMA] as const;
   fruits: Fruit[] = [];
+  animal: string='';
+  name: string='';
 
-   ELEMENT_DATA: PeriodicElement[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
+  ELEMENT_DATA: OrderDetail[] = [{
+    CloseDate: new Date(), DOMHolds: 4, DOMStatus: 'A', ESBEx: null, ESBLogs: null, Order: 'T-12345', Rel_Date: new Date(),
+    Req_Del_Date: new Date(), WMS: null, WMSCancel: '', WMSExport: 3, WMSStatus: 'A'
+  }];
   selected: any;
   displayedColumns: string[] = [];
-  dataSource = new MatTableDataSource<PeriodicElement>();
-  constructor(private formBuilder: FormBuilder) {
+  dataSource = new MatTableDataSource<OrderDetail>();
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {
     this.formGroup = this.formBuilder.group({
       order: new FormControl('')
     });
-   }
+  }
 
   ngOnInit(): void {
     this.displayedColumns = ['Order', 'Rel.Date', 'Req.Del.Date', 'CloseDate', 'DOMStatus', 'DOMHolds',
-  'WMS','WMSStatus', 'WMSCancel', 'WMSExport', 'ESBLogs', 'ESBEx', 'CTMSDetail', 'DomDetail', 'WMSDetail', 'ESBDetail'];
+      'WMS', 'WMSStatus', 'WMSCancel', 'WMSExport', 'ESBLogs', 'ESBEx','select'];
     // this.typesOfShoes = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
     this.dataSource.data = this.ELEMENT_DATA;
   }
@@ -56,8 +55,8 @@ export class OrderDetailsComponent implements OnInit {
   addTypes() {
     let formcontrol = this.formGroup.get('order');
     const type = formcontrol?.value;
-    if(type) {
-      this.fruits.push({name:type});
+    if (type) {
+      this.fruits.push({ name: type });
     }
   }
 
@@ -70,16 +69,69 @@ export class OrderDetailsComponent implements OnInit {
     let formcontrol = this.formGroup.get('order');
     formcontrol?.setValue(fruit.name);
   }
- 
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ZavacorOrderComponent, {
+      width: '750px',
+      data: {name: this.name, animal: this.animal}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      this.animal = result;
+    });
+  }
+
+  openOmniDialog(): void {
+    const dialogRef = this.dialog.open(OmniStatusDetailsComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      this.animal = result;
+    });
+  }
+
+  openExactaDialog(): void {
+    const dialogRef = this.dialog.open(ExactaStatusComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      this.animal = result;
+    });
+  }
+
+  openESBStatusDialog(): void {
+    const dialogRef = this.dialog.open(EbsStatusComponent, {
+      width: '750px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+      this.animal = result;
+    });
+  }
+
 }
 
 export class Fruit {
   name!: string;
 }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+export interface OrderDetail {
+  Order: string;
+  Rel_Date: Date;
+  Req_Del_Date: Date;
+  CloseDate: Date;
+  DOMStatus: string;
+  DOMHolds: Number;
+  WMS: any;
+  WMSStatus: string;
+  WMSCancel: string;
+  WMSExport: any;
+  ESBLogs: any;
+  ESBEx: any;
 }
