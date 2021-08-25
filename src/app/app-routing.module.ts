@@ -11,7 +11,7 @@ const routes: Routes = [
     path: 'order-delay', component: DelayedOrderTransmissionComponent
   },
   // { path: '**', component: OrderDetailsComponent },
-  // { path: '', component: OrderDetailsComponent }
+   { path: '', component: OrderDetailsComponent }
 ];
 
 @NgModule({

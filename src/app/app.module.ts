@@ -30,6 +30,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTreeModule } from '@angular/material/tree';
 import { HeaderComponent } from './shared/menu/header/header.component';
 import { SideMenuComponent } from './shared/menu/side-menu/side-menu.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { SideMenuComponent } from './shared/menu/side-menu/side-menu.component';
     MatNativeDateModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatTreeModule
+    MatTreeModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
