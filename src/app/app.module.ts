@@ -32,6 +32,7 @@ import { HeaderComponent } from './shared/menu/header/header.component';
 import { SideMenuComponent } from './shared/menu/side-menu/side-menu.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
+import { DelayReasonComponent } from './shared/dialogs/delay-reason/delay-reason.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {MatRadioModule} from '@angular/material/radio';
     EbsStatusComponent,
     DelayedOrderTransmissionComponent,
     HeaderComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    DelayReasonComponent
   ],
   imports: [
     BrowserModule,

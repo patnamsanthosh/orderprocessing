@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Delay Reason</h1>
+<div mat-dialog-content>
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Stop Id</mat-label>
+            <input matInput placeholder="Stop Id" value="">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Explanation</mat-label>
+            <textarea matInput placeholder="Explanation"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Start Id</mat-label>
+            <input matInput placeholder="Stop Id" value="">
+        </mat-form-field>
+
+        <fieldset>
+            <legend>
+                Start Type
+            </legend>
+
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">Manual</mat-radio-button>
+                <mat-radio-button value="2">Automated</mat-radio-button>
+              </mat-radio-group>
+        </fieldset>
+
+        <mat-form-field class="example-full-width padding-top-12" appearance="outline">
+            <mat-label>Instructions</mat-label>
+            <textarea matInput placeholder="Instructions"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+
+<div mat-dialog-actions style="float: right;">
+    <button mat-button>Ok</button>
+</div>

@@ -148,7 +148,11 @@
                           </button>
                     </td>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item >
+                        <button mat-menu-item (click)= "openDialog()">
+                         
+                            <span>Restart Action</span>
+                          </button>
+                        <button mat-menu-item>
                          
                           <span>Restart</span>
                         </button>
