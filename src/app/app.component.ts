@@ -28,7 +28,17 @@ export class AppComponent {
     displayName: 'Dashboard',
     iconName: 'home',
     route: 'home',
-    children: []
+    children: [{
+      displayName:'Menu Management',
+      route:'menu-management',
+      iconName:'',
+      children:[]
+    },
+    {
+      displayName:'Home Page Management',
+      iconName:'',
+      children:[]
+    }]
   },
   {
     displayName: 'eManifest',

@@ -1,0 +1,39 @@
+.padding-top-12 {
+    padding-top: 12px;
+}
+
+.mat-row:nth-child(even){
+    background-color: #f5edeb;
+}
+        
+.mat-row:nth-child(odd){
+    background-color: #f0c2a5;
+}
+
+th.mat-header-cell {
+
+    padding: 5px;
+    font-weight: bold;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  
+   border: solid 1px rgb(180, 171, 171);
+   text-align: center;
+}
+
+.mat-column-menu {
+    width: 30%;
+}
+
+.mat-column-level {
+    width: 10%;
+}
+
+.mat-column-url {
+    width: 30%;
+}
+
+.mat-column-parent {
+    width: 30%;
+}
