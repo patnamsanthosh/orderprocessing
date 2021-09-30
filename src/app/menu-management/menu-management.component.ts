@@ -50,6 +50,14 @@ export class MenuManagementComponent implements OnInit {
     
   }
 
+  backtoOneloan() {
+    window.open('http://localhost:4300/home', '_self');
+  }
+
+
+  saveMnu(menu:MenuManagement) {
+    this.menuManagement.push(menu);
+  }
 }
 
 export class MenuManagement {

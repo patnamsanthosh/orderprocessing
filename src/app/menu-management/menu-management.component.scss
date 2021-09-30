@@ -37,3 +37,7 @@ th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
 .mat-column-parent {
     width: 30%;
 }
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+    min-width:52px;
+}

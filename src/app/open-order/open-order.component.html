@@ -1,0 +1,149 @@
+
+<div class="container">
+    <div class="padding-top-12">
+        <h4>Open Order</h4>
+    </div>
+    <hr>
+
+
+    <fieldset class="width-60">
+        <legend>Zavacor to Fulfillment Center Flow :</legend>
+        
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>ZC Released</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>Omni Open</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>Omni Alloc</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>Omni Rel.</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>FC In Process</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  
+            </div>
+            <div class="col-md-2">
+
+                <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+                    <mat-button-toggle value="red">IND</mat-button-toggle>
+                    <mat-button-toggle value="green">MEC</mat-button-toggle>
+                  </mat-button-toggle-group>
+                <!-- <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>IND</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>MEC</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field> -->
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Type</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let err of exceptions" [value]="err">
+                        {{err}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+
+        </div>
+    </fieldset>
+
+    <div class="margin-top-24">
+
+   
+    <fieldset class="width-60 margin-top-24">
+        <legend>Fulfillment Center to Zavacor Flow :</legend>
+        <div class="row">
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>ZC Closed</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+            </div>
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>Omni Pub.</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+            </div>
+
+            <div class="col-md-2">
+                <mat-form-field class="example-form-field" appearance="outline">
+                    <mat-label>FC Exported</mat-label>
+                    <input matInput type="text" >                   
+                  </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+                    <mat-button-toggle value="red">IND</mat-button-toggle>
+                    <mat-button-toggle value="green">MEC</mat-button-toggle>
+                  </mat-button-toggle-group>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Type</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let err of fulfillmentZCErr" [value]="err">
+                        {{err}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+
+        </div>
+    </fieldset>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+
+    </div>
+    <div class="col-md-3">
+        <button mat-raised-button color="primary">Refresh</button>
+        <button mat-raised-button style="margin-left: 12px;margin-top: 12px;" color="primary">Details</button>
+    </div>
+
+</div>
+</div>

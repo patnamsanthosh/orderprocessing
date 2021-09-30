@@ -34,6 +34,8 @@ import { MatSelectModule } from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { DelayReasonComponent } from './shared/dialogs/delay-reason/delay-reason.component';
 import { MenuManagementComponent } from './menu-management/menu-management.component';
+import { OpenOrderComponent } from './open-order/open-order.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { MenuManagementComponent } from './menu-management/menu-management.compo
     HeaderComponent,
     SideMenuComponent,
     DelayReasonComponent,
-    MenuManagementComponent
+    MenuManagementComponent,
+    OpenOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ import { MenuManagementComponent } from './menu-management/menu-management.compo
     MatSidenavModule,
     MatTreeModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatButtonToggleModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
