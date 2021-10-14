@@ -36,6 +36,7 @@ import { DelayReasonComponent } from './shared/dialogs/delay-reason/delay-reason
 import { MenuManagementComponent } from './menu-management/menu-management.component';
 import { OpenOrderComponent } from './open-order/open-order.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatTableExporterModule } from 'mat-table-exporter';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatTreeModule,
     MatSelectModule,
     MatRadioModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTableExporterModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
